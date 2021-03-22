@@ -1,0 +1,29 @@
+﻿@model MyPostsViewModel
+@using AddPostsAuth.Data
+
+<body>
+    <div class="col-6 offset-md-3">
+        <h1>Free Stuff</h1>
+        <br />
+        @foreach (Post p in Model.Posts)
+        {
+            <div class="container border border-primary">
+                @if (p.Name != null)
+                {
+                    <h3>Listed by:<span class="lead"> @p.Name</span></h3>
+                }
+                <h3>Listed on: <span class="lead">@p.DatePosted.ToLongDateString()</span></h3>
+                <h3>Phone Number: <span class="lead">@p.PhoneNumber</span></h3>
+                <p1>Details: <span class="lead">@p.Details</span></p1>
+                <br />
+                <div class="row justify-content-center" href="/home/deletepost">
+                    <form method="post" action="/home/deletepost">
+                        <input type="hidden" name="postId" value="@p.Id" />
+                        <button class="btn btn-outline-primary">Delete</button>
+                    </form>
+                </div>
+            </div>
+            <br />
+        }
+    </div>
+</body>

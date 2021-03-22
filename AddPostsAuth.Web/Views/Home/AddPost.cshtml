@@ -1,0 +1,22 @@
+﻿@model AddPostViewModel
+
+<div class="row mt-4">
+    <div class="container col-md-8 offset-md-2 border-primary">
+        <h2>New Post</h2>
+        <form method="POST" action="/home/submitpost">
+            <input type="hidden" name="userId" value="@Model.currentUserId" />
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <input type="text" placeholder="Name" class="form-control" name="name" />
+                </div>
+                <div class="col-md-6">
+                    <input type="text" placeholder="Phone Number" class="form-control" name="phonenumber" />
+                </div>
+            </div>
+            <br />
+            <textarea name="details" class="form-control" rows="10" placeholder="Description"></textarea>
+            <br />
+            <button class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
