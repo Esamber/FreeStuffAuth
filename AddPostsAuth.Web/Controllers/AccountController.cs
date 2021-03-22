@@ -22,8 +22,8 @@ namespace AddPostsAuth.Web.Controllers
         {
             PostsDb db = new(_connectionString);
             db.AddUser(a);
-            return Redirect($"/account/submitlogin?email={a.Email}&password={a.Password}");
-            //return Redirect("/account/login");
+            //return Redirect($"/account/submitlogin?email={a.Email}&password={a.Password}");
+            return Redirect("/account/login");
         }
         public IActionResult Login()
         {
@@ -33,7 +33,7 @@ namespace AddPostsAuth.Web.Controllers
             }
             return View();
         }
-        //[HttpPost]
+        [HttpPost]
         public IActionResult SubmitLogin(string email, string password)
         {
             PostsDb db = new(_connectionString);
